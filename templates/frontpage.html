@@ -1,0 +1,14 @@
+<form action="/newpost/" method="get">
+  <input type="submit" value="Create New Post">
+</form>
+<br>
+<h2>Most Recent Blog Posts:</h2>
+<ul>
+{% for blogpost in lastfive %}
+      <h3><a href="/blog/{{ blogpost.key().id() }}">{{ blogpost.title }}</a></h3>
+      {{ blogpost.body }}
+      <br>
+      <p class="created">Created: {{ blogpost.created }}</p>
+      <br>
+{% endfor %}
+</ul>
